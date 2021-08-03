@@ -77,27 +77,40 @@ cookiesCalculation.prototype.outputToHTML = function () {
 }
 
 // (location, avgCookie, maxClient, minClient)
+let seattle = new cookiesCalculation(`Seattle`, 6.3, 65, 23);
+let tokyo = new cookiesCalculation(`Tokyo`, 1.2, 24, 3);
+let dubai = new cookiesCalculation(`Dubai`, 3.7, 38, 11);
+let paris = new cookiesCalculation(`Paris`, 2.3, 38, 20);
+let lima = new cookiesCalculation(`Lima`, 4.6, 16, 2);
 
-let seattle = new cookiesCalculation (`Seattle`,6.3 ,65 ,23);
-seattle.customerAvg();
-seattle.cookiePerHour();
-seattle.outputToHTML();
-let tokyo = new cookiesCalculation (`Tokyo`,1.2 ,24 ,3);
-tokyo.customerAvg();
-tokyo.cookiePerHour();
-tokyo.outputToHTML();
-let dubai = new cookiesCalculation (`Dubai`,3.7 ,38 ,11);
-dubai.customerAvg();
-dubai.cookiePerHour();
-dubai.outputToHTML();
-let paris = new cookiesCalculation (`Paris`,2.3 ,38 ,20);
-paris.customerAvg();
-paris.cookiePerHour();
-paris.outputToHTML();
-let lima = new cookiesCalculation (`Lima`,4.6 ,16 ,2);
-lima.customerAvg();
-lima.cookiePerHour();
-lima.outputToHTML();
+let arr = [seattle, tokyo, dubai, paris, lima]
+for (let s = 0; s < arr.length; s++) {
+    arr[s].customerAvg();
+    arr[s].cookiePerHour();
+    arr[s].outputToHTML();
+
+}
+
+// let seattle = new cookiesCalculation(`Seattle`, 6.3, 65, 23);
+// seattle.customerAvg();
+// seattle.cookiePerHour();
+// seattle.outputToHTML();
+// let tokyo = new cookiesCalculation(`Tokyo`, 1.2, 24, 3);
+// tokyo.customerAvg();
+// tokyo.cookiePerHour();
+// tokyo.outputToHTML();
+// let dubai = new cookiesCalculation(`Dubai`, 3.7, 38, 11);
+// dubai.customerAvg();
+// dubai.cookiePerHour();
+// dubai.outputToHTML();
+// let paris = new cookiesCalculation(`Paris`, 2.3, 38, 20);
+// paris.customerAvg();
+// paris.cookiePerHour();
+// paris.outputToHTML();
+// let lima = new cookiesCalculation(`Lima`, 4.6, 16, 2);
+// lima.customerAvg();
+// lima.cookiePerHour();
+// lima.outputToHTML();
 
 
 
@@ -124,7 +137,7 @@ lima.outputToHTML();
 // ulElement.appendChild(liTotal)
 // } 
 //     }
-    
+
 //     }
 
 
