@@ -12,31 +12,33 @@
 
 <body class="salespage">
 
-    <section>
+    <fieldset>
+        <legend> OUR NEW BRANCH </legend>
+            <form id="Form">
+                <label for="Location">Location</label>
+                <input type="text" name="" id="Location" required>
+                <br>
+                <label for="minClientPerHour">The mini number of Client per hour.</label>
+                <input type="number" name="minClientPerHour" id="minClinetPerHour" required>
+                <br>
+                <label for="maxClientPerHour">The maxi number of Client per hour.</label>
+                <input type="number" name="maxClientPerHour" id="maxClientPerHour" required>
+                <br>
+                <label for="averageCookiesPerClient">The average number of cookies purchased per Client.</label>
+                <input type="number" name="averageCookiesPerClient" id="averageCookiesPerClient" required>
+                <br>
+                <input type="submit" value="submit">
+            </form>
+      
+    </fieldset>
 
-        <form id="Form">
-            <label for="Location">Location</label>
-            <input type="text" name="" id="Location" required>
-            <br>
-            <label for="minClientPerHour">The mini number of Client per hour.</label>
-            <input type="number" name="minClientPerHour" id="minClinetPerHour" required>
-            <br>
-            <label for="maxClientPerHour">The maxi number of Client per hour.</label>
-            <input type="number" name="maxClientPerHour" id="maxClientPerHour" required>
-            <br>
-            <label for="averageCookiesPerClient">The average number of cookies purchased per Client.</label>
-            <input type="number" name="averageCookiesPerClient" id="averageCookiesPerClient" required>
-            <br>
-            <input type="submit" value="submit">
-        </form>
-    </section>
 
     <section id="fishCookie">
         <h2>This Our statistics Sale All Over The World </h2>
     </section>
+    <br>
 
-
-
+<a href="index.html"> GO BACK TO MAIN PAGE </a>
 
     <script src="./js/app.js"></script>
 </body>
