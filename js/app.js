@@ -139,14 +139,11 @@ function makeFooterTable() {
         
     let tdElementFooter2= document.createElement(`td`);
         trEle2.appendChild(tdElementFooter2);
-        // tdElementFooter2.textContent =`${finalTotal}`
+        
         tdElementFooter2.textContent =`${seattle.total + tokyo.total + dubai.total + paris.total + lima.total}`;
     }
       
 
-    // let tdEle3 = document.createElement(`td`)
-    // tdEle3.textContent = `Daily total cookies`;
-    // trEle2.appendChild(tdEle3);
 
 
 
