@@ -1,5 +1,5 @@
 `use strict`;
-let all=[];
+let all = [];
 
 let openingHours = [`6am`, `7am`, `8am`, `9am`, `i0am`, `iiam`, `i2pm`, `ipm`, `2pm`, `3pm`, `4pm`, `5pm`, `6pm`, `7pm`];
 let fishCookie = document.getElementById(`fishCookie`);
@@ -7,8 +7,8 @@ let fishCookie = document.getElementById(`fishCookie`);
 function cookiesCalculation(location, avgCookie, maxClient, minClient) {
 
     this.location = location;
-    this.cInHour =0;
-    this.cInHourSales =[];
+    this.cInHour = 0;
+    this.cInHourSales = [];
     this.avgCookie = avgCookie;
     this.finalresult = [];
     this.minClient = minClient;
@@ -31,7 +31,7 @@ cookiesCalculation.prototype.cookiePerHour = function () {
         // console.log(this.finalresult);
         this.total += cookiePerHourNum;
         this.cInHourSales.push(this.finalresult)
-        
+
     } return this.finalresult;
 
 }
@@ -44,8 +44,8 @@ fishCookie.appendChild(divElement);
 let tableEle = document.createElement(`table`);
 fishCookie.appendChild(tableEle);
 
-function makeHeaderTable (){
-   
+function makeHeaderTable() {
+
     let trEle = document.createElement(`tr`);
     tableEle.appendChild(trEle);
 
@@ -100,11 +100,11 @@ let dubai = new cookiesCalculation(`Dubai`, 3.7, 38, 11);
 let paris = new cookiesCalculation(`Paris`, 2.3, 38, 20);
 let lima = new cookiesCalculation(`Lima`, 4.6, 16, 2);
 
-let arr = [seattle, tokyo, dubai, paris, lima]
-for (let s = 0; s < arr.length; s++) {
-    arr[s].customerAvg();
-    arr[s].cookiePerHour();
-    arr[s].outputToHTML();
+let finalEementWithForm = [seattle, tokyo, dubai, paris, lima]
+for (let s = 0; s < finalEementWithForm.length; s++) {
+    finalEementWithForm[s].customerAvg();
+    finalEementWithForm[s].cookiePerHour();
+    finalEementWithForm[s].outputToHTML();
 
 }
 makeFooterTable();
@@ -122,8 +122,8 @@ function makeFooterTable() {
     trEle2.appendChild(thEle2);
 
     for (let i = 0; i < openingHours.length; i++) {
-        let totalDaily =0
-        for (let j = 0 ; j < all.length ; j++){
+        let totalDaily = 0
+        for (let j = 0; j < all.length; j++) {
             totalDaily += all[j].finalresult[i]
         }
         let tdEle2 = document.createElement(`td`);
@@ -136,33 +136,59 @@ function makeFooterTable() {
     //     let finalTotal =0
     //     for (let j = 0 ; j < all.length ; j++){
     //         finalTotal +=all[j].total
-        
-    let tdElementFooter2= document.createElement(`td`);
-        trEle2.appendChild(tdElementFooter2);
-        
-        tdElementFooter2.textContent =`${seattle.total + tokyo.total + dubai.total + paris.total + lima.total}`;
+
+    let tdElementFooter2 = document.createElement(`td`);
+    trEle2.appendChild(tdElementFooter2);
+
+    tdElementFooter2.textContent = `${seattle.total + tokyo.total + dubai.total + paris.total + lima.total}`;
+}
+
+
+Form.addEventListener('submit', submitHandler);
+function submitHandler(event) {
+    event.preventDefault();
+    let Location = document.getElementById("Location").value;
+    let minClinetPerHour = document.getElementById("minClinetPerHour").value
+    let maxClientPerHour = document.getElementById("maxClientPerHour").value;
+    let averageCookiesPerClient = document.getElementById("averageCookiesPerClient").value;
+    let newCookiesCalculation = new cookiesCalculation(Location, minClinetPerHour, maxClientPerHour, averageCookiesPerClient);
+    newCookiesCalculation.customerAvg();
+    newCookiesCalculation.cookiePerHour();
+    newCookiesCalculation.outputToHTML();
+    let trbuttom = document.createElement('tfoot');
+    trbuttom.textContent = 'Totals:-';
+    tableEle.appendChild(trbuttom);
+
+
+    let finalEementWithForm = [];
+    for (let i = 0; i < openingHours.length; i++) {
+        let tdnew = document.createElement('td');
+        finalEementWithForm[i] = Seattle.finalresult[i] + Tokyo.finalresult[i] + Dubai.finalresult[i] + Paris.finalresult[i] + Lima.finalresult[i] + newCookiesCalculation.finalresult[i];
+        // const finalEementWithForm = finalEementWithForm.map( value => Math.floor( Math.abs(value) * 100) / 100 );
+
+        // getPositives(finalEementWithForm)
+        // Math.abs(finalEementWithForm);
+        // return finalEementWithForm;
+        //  -----> the number still apear negative and i don`t know why 
+        tdnew.textContent = finalEementWithForm[i];
+        trbuttom.appendChild(tdnew);
+
+        let td5 = document.createElement('td');
+        td5.textContent = `${seattle.total + tokyo.total + dubai.total + paris.total + lima.total + newCookiesCalculation.total}`
+        trbuttom.appendChild(td5)
+        tableEle.tFoot = trbuttom;
     }
-      
 
-    Form.addEventListener('submit', submitHandler);
-        function submitHandler(event) {
-        event.preventDefault();
-        let Location = document.getElementById("Location").value;
-        let minClinetPerHour = document.getElementById("minClinetPerHour").value
-        let maxClientPerHour = document.getElementById("maxClientPerHour").value;
-        let averageCookiesPerClient = document.getElementById("averageCookiesPerClient").value;
-        let newCookiesCalculation = new cookiesCalculation(Location, minClinetPerHour, maxClientPerHour, averageCookiesPerClient);
-        newCookiesCalculation.customerAvg();
-        newCookiesCalculation.cookiePerHour();
-        newCookiesCalculation.outputToHTML();
 
-        }
-    
+
+}
+
+
 // {
 
 //         let trFooter = document.createElement(`tr`);
 //         tableEle.appendChild(trFooter);
-    
+
 //         let thElementFooter=document.createElement(`th`);
 //         trFooter.appendChild(thElementFooter);
 //         thElementFooter.textContent =`Totals :`;
@@ -173,16 +199,16 @@ function makeFooterTable() {
 //             tdElementFooter5.textContent =`${seattle.finalresult[s] + tokyo.finalresult[s] + dubai.finalresult[s] + paris.finalresult[s] + lima.finalresult[s]}`;
 
 //             trFooter.appendChild(tdElementFooter5);
-           
+
 //         }    
-        
-       
-    
-    
+
+
+
+
 //     }
 
 
-    
+
 
 
 
