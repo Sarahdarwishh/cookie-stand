@@ -17,12 +17,15 @@ function cookiesCalculation(location, avgCookie, maxClient, minClient) {
     all.push(this);
 
 }
+
 cookiesCalculation.prototype.customerAvg = function () {
     this.cInHour = Math.floor(Math.random() * (this.maxClient - this.minClient + 1) + this.minClient);
 
     // console.log(this.cInHour);
     return this.cInHour;
 }
+
+
 cookiesCalculation.prototype.cookiePerHour = function () {
     for (let i = 0; i < openingHours.length; i++) {
         let cookiePerHourNum = Math.floor(this.avgCookie * this.customerAvg());
@@ -35,6 +38,7 @@ cookiesCalculation.prototype.cookiePerHour = function () {
     } return this.finalresult;
 
 }
+
 
 
 
@@ -152,10 +156,15 @@ Form.addEventListener('submit', submitHandler);
 
 function submitHandler(event) {
     event.preventDefault();
-    let Location = document.getElementById("Location").value;
-    let minClinetPerHour = document.getElementById("minClinetPerHour").value;
-    let maxClientPerHour = document.getElementById("maxClientPerHour").value;
-    let averageCookiesPerClient = document.getElementById("averageCookiesPerClient").value;
+
+    let Location = event.target.Location.value
+    let minClinetPerHour = event.target.minClinetPerHour.value
+    let maxClientPerHour= event.target.maxClientPerHour.value
+    let averageCookiesPerClient = event.target.averageCookiesPerClient.value
+//    let Location = document.getElementById("Location").value;
+//     let minClinetPerHour = document.getElementById("minClinetPerHour").value;
+//     let maxClientPerHour = document.getElementById("maxClientPerHour").value;
+//     let averageCookiesPerClient = document.getElementById("averageCookiesPerClient").value;
 
     //  create a new store here :
 
