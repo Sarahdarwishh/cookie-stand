@@ -3,7 +3,7 @@ let all = [];
 
 let openingHours = [`6am`, `7am`, `8am`, `9am`, `i0am`, `iiam`, `i2pm`, `ipm`, `2pm`, `3pm`, `4pm`, `5pm`, `6pm`, `7pm`];
 let fishCookie = document.getElementById(`fishCookie`);
-
+let form = document.getElementById("form")
 function cookiesCalculation(location, avgCookie, maxClient, minClient) {
 
     this.location = location;
@@ -144,37 +144,37 @@ function makeFooterTable() {
 }
 
 
+
+
+
+
 Form.addEventListener('submit', submitHandler);
+
 function submitHandler(event) {
     event.preventDefault();
     let Location = document.getElementById("Location").value;
-    let minClinetPerHour = document.getElementById("minClinetPerHour").value
+    let minClinetPerHour = document.getElementById("minClinetPerHour").value;
     let maxClientPerHour = document.getElementById("maxClientPerHour").value;
     let averageCookiesPerClient = document.getElementById("averageCookiesPerClient").value;
+
+    //  create a new store here :
+
     let newCookiesCalculation = new cookiesCalculation(Location, minClinetPerHour, maxClientPerHour, averageCookiesPerClient);
+    tableEle.deleteRow(-1);
     newCookiesCalculation.customerAvg();
     newCookiesCalculation.cookiePerHour();
     newCookiesCalculation.outputToHTML();
-    let trbuttom = document.createElement('tfoot');
-    trbuttom.textContent = 'Totals:-';
-    tableEle.appendChild(trbuttom);
-
+    makeFooterTable();
 
     let finalEementWithForm = [];
     for (let i = 0; i < openingHours.length; i++) {
         let tdnew = document.createElement('td');
         finalEementWithForm[i] = Seattle.finalresult[i] + Tokyo.finalresult[i] + Dubai.finalresult[i] + Paris.finalresult[i] + Lima.finalresult[i] + newCookiesCalculation.finalresult[i];
-        // const finalEementWithForm = finalEementWithForm.map( value => Math.floor( Math.abs(value) * 100) / 100 );
-
-        // getPositives(finalEementWithForm)
-        // Math.abs(finalEementWithForm);
-        // return finalEementWithForm;
-        //  -----> the number still apear negative and i don`t know why 
         tdnew.textContent = finalEementWithForm[i];
         trbuttom.appendChild(tdnew);
 
         let td5 = document.createElement('td');
-        td5.textContent = `${seattle.total + tokyo.total + dubai.total + paris.total + lima.total + newCookiesCalculation.total}`
+        td5.textContent = Seattle.Total + Tokyo.Total + Dubai.Total + Paris.Total + Lima.Total + newCookiesCalculation.total
         trbuttom.appendChild(td5)
         tableEle.tFoot = trbuttom;
     }
