@@ -80,15 +80,15 @@ width: 600px;
 height: 400px;
 }
 
-
-.sec2 p {
-color:darkred;
-font-family:Verdana, Geneva, Tahoma, sans-serif
-position: relative;
-text-align: lift;
-font-size: 18px;
-padding: 30px;
-}
+/* 
+#p{
+    color:darkred;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    position : relative;
+    text-align : lift;
+    font-size: 18px;
+    padding: 30px;
+} */
 
 a {
 color: darkred;
@@ -135,6 +135,7 @@ th, td {
 padding: 15px;
 text-align: left;
 border-color: peru;
+background-color:rgb(177, 171, 85)
 }
 section.form{
 margin-top: 20px;
@@ -164,6 +165,20 @@ background-color: #a5af4c;
 color: white;
 width: 20%;
 text-decoration: none;
-
+font-family:sans-serif ;
 cursor: pointer;
+}
+body{
+    font-family: "Sofia", sans-serif;
+    font-size: 30px;
+      
+}
+#img div p{
+    color: rgb(101, 12, 185);
+    color:darkred;
+    font-family: Georgia, 'Times New Roman', Times, serif
+  
+    }
+#salespage{
+    background-color: brown;
 }
