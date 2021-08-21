@@ -1,6 +1,6 @@
 `use strict`;
 let all = [];
-
+//sarah 
 let openingHours = [`6am`, `7am`, `8am`, `9am`, `i0am`, `iiam`, `i2pm`, `ipm`, `2pm`, `3pm`, `4pm`, `5pm`, `6pm`, `7pm`];
 let fishCookie = document.getElementById(`fishCookie`);
 let form = document.getElementById("form")
